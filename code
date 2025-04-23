@@ -1,1 +1,31 @@
+class PalmOS:
+    def __init__(self):
+        self.apps = {
+            "1": ("Messages", self.open_messages),
+            "2": ("Contacts", self.open_contacts),
+            "3": ("Settings", self.open_settings)
+        }
+
+    def run(self):
+        while True:
+            self.show_home_screen()
+            choice = input("Choose an app (1-3) or 'q' to quit: ").strip().lower()
+            if choice == 'q':
+                print("Shutting down PalmOS. Goodbye!")
+                break
+            elif choice in self.apps:
+                app_name, app_function = self.apps[choice]
+                print(f"\nOpening {app_name}...\n")
+                app_function()
+            else:
+                print("Invalid choice. Please try again.")
+
+    def show_home_screen(self):
+        print("\n=== PalmOS Home Screen ===")
+        for key, (name, _) in self.apps.items():
+            print(f"{key}. {name}")
+        print("===========================\n")
+
+    def open_messages(self):
+        print("📨 Messages App
 
