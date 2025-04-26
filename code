@@ -1,0 +1,46 @@
+class PalmOS:
+    def __init__(self):
+        self.contacts = {}
+
+    def add_contact(self, name, phone_number):
+        self.contacts[name] = phone_number
+        print(f"Contact {name} added successfully.")
+
+    def view_contacts(self):
+        if not self.contacts:
+            print("No contacts available.")
+        else:
+            print("Contacts:")
+            for name, phone_number in self.contacts.items():
+                print(f"{name}: {phone_number}")
+
+    def make_call(self, name):
+        if name in self.contacts:
+            print(f"Calling {name} at {self.contacts[name]}...")
+        else:
+            print(f"{name} is not in your contacts.")
+
+    def send_message(self, name, message):
+        if name in self.contacts:
+            print(f"Sending message to {name}: {message}")
+        else:
+            print(f"{name} is not in your contacts.")
+
+
+# Example usage
+if __name__ == "__main__":
+    phone = PalmOS()
+
+    # Adding contacts
+    phone.add_contact("PalmTreeOS Team", "470-632-2022")
+    phone.add_contact("Alice", "123-456-7890")
+    phone.add_contact("Bob", "987-654-3210")
+
+    # Viewing contacts
+    phone.view_contacts("PalmTreeOS Team", "470-632-2022")
+
+    # Making a call
+    phone.make_call("Alice")
+
+    # Sending a message
+    phone.send_message("PalmTreeOS Team", Hi)
